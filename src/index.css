@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-main-background: #3a4663;
+  --clr-calc-screen-background: #181f33;
+  --clr-calc-screen-number: #fff;
+  --clr-calc-panel-background: #242d44;
+  --clr-calc-numbers-background: #eae3dc;
+  --cl-calc-numbers: #434a59;
+  --clr-calc-delete-reset-bg: #647198;
+  --clr-calc-equal-background: #d03f2f;
+  --clr-calc-reset-del-equal: #fff;
+  --clr-logo: #fff;
+  --clr-theme-change-text: #fff;
+  --clr-theme-change-knob: #d03f2f;
+  --clr-theme-change-bg: #242d44;
+
+  /* Hover  */
+  --clr-num-hover: #fffffe;
+  --clr-reset-del-hover: #a2b2e1;
+  --clr-equal-hover: #f96b5b;
+
+  /* Box Shadow */
+  --equal-inner-shadow: 0 -4 0 #93261a;
+  --reset-del-inner-shadow: 0 -4 0 #414e73;
+  --num-inner-shadow: 0 -4 0 #b3a497;
+}
+
+#root {
+  width: 100%;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-main-background);
+}
+
+.container {
+  width: min(87%, 540px);
+  margin-inline: auto;
+}
+/* ****************************** */
+/* Header */
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+header .logo {
+  font-size: 32px;
+  color: var(--clr-logo);
+  width: 100%;
+}
+
+header .theme-changer {
+  display: flex;
+  width: 100%;
+  gap: 26px;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--clr-theme-change-text);
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+header .theme-changer .theme-check {
+  width: 71px;
+  height: 26px;
+  background-color: var(--clr-theme-change-bg);
+  position: relative;
+  border-radius: 13px;
+}
+
+header .theme-changer .theme-check::before {
+  content: "123";
+  position: absolute;
+  left: 15%;
+  top: -50%;
+  color: var(--clr-theme-change-text);
+  font-size: 12px;
+  letter-spacing: 15px;
+}
+
+header .theme-changer .theme-check::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  background-color: var(--clr-theme-change-knob);
+}
+
+/* *************Calculator***************** */
+/* Screen Panel */
+.calculator-section .calculator-panel {
+  width: 100%;
+  min-height: 128px;
+  border-radius: 10px;
+  background-color: var(--clr-calc-screen-background);
+  color: var(--clr-calc-screen-number);
+  font-size: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 30px;
+  margin-bottom: 24px;
+}
+
+@media (width <= 480px) {
+  .calculator-section .calculator-panel {
+    font-size: 40px;
+  }
+}
+
+/* calculator */
+.calculator-section .calculator {
+  width: 100%;
+  padding: 32px 30px;
+  background-color: var(--clr-calc-panel-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+
+.row span {
+  flex: 1;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 40px;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (width <= 480px) {
+  .row {
+    gap: 13px;
+  }
+  .row span {
+    font-size: 32px;
+  }
+}
+
+.row span.main {
+  background-color: var(--clr-calc-numbers-background);
+  color: var(--cl-calc-numbers);
+}
+
+.row span.main:hover {
+  background-color: var(--clr-num-hover);
+  box-shadow: var(--num-inner-shadow);
+}
+
+.row span.del,
+.row span.reset {
+  background-color: var(--clr-calc-delete-reset-bg);
+  color: var(--clr-calc-reset-del-equal);
+  font-size: 28px;
+}
+
+.row span.del:hover,
+.row span.reset:hover {
+  background-color: var(--clr-reset-del-hover);
+  box-shadow: var(--reset-del-inner-shadow);
+}
+
+.row span.equal {
+  background-color: var(--clr-calc-equal-background);
+  color: var(--clr-calc-reset-del-equal);
+}
+.row span.equal:hover {
+  background-color: var(--clr-equal-hover);
+  box-shadow: var(--equal-inner-shadow);
+}
+.row span.reset,
+.row span.equal {
+  flex: 1;
+  font-size: 28px;
+}
+
+@media (width <= 480px) {
+  .row span.reset,
+  .row span.equal,
+  .row span.del {
+    font-size: 20px;
+  }
+}
